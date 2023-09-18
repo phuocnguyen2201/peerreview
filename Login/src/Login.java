@@ -25,7 +25,7 @@ public class Login {
     //The function will processing and validate each fields user have just entered.
     static void validateData(String firstName, String lastName, String busDomain, Scanner in){
 
-        //This loop is validate the empty fields.
+        //This loop is to validate the empty fields.
          while( firstName.isBlank() || firstName.isEmpty()
         ||      lastName.isBlank()  || lastName.isEmpty()
         ||      busDomain.isBlank() || busDomain.isEmpty())
@@ -43,7 +43,7 @@ public class Login {
                 enterCredentials(in);
             }
 
-        //This loop is validate for the length of firstName or lastName.
+        //This loop is to validate for the length of firstName or lastName.
         while(firstName.length() < 4 || lastName.length() < 4){
 
             if(firstName.length() < 4)
@@ -55,14 +55,14 @@ public class Login {
             enterCredentials(in);
         }
 
-        //This loop is validate valid business domain.
+        //This loop is to validate valid business domain.
         while(!busDomain.contains(".")){
             System.out.println("Business domain is not valid, example hamk.fi");
 
             enterCredentials(in);
         }
 
-        //If everything is good, we calling function generateEmail for next step.
+        //If everything above is good, we calling function generateEmail for next step.
         GenerateEmail(firstName, lastName, busDomain);
     }
 
@@ -77,6 +77,7 @@ public class Login {
 
     //Function generate username.
     static void GenerateUsername(String firstName, String lastName){
+        //For substring last name, set the endIndex as lastName length (get the last element). And for beginIndex we substract for 4 (get 4 character forward from the end)
             System.out.println(firstName.toLowerCase().substring(0, 4)
                                 +lastName.toLowerCase().substring(lastName.length() - 4 >= 0? 
                                 lastName.length() - 4: 0, lastName.length()));
