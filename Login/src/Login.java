@@ -62,8 +62,9 @@ public class Login {
             enterCredentials(in);
         }
 
-        //If everything above is good, we calling function generateEmail for next step.
+        //If everything above is good, we calling function generateEmail and generateUsername for next step.
         GenerateEmail(firstName, lastName, busDomain);
+        GenerateUsername(firstName, lastName);
     }
 
     //Function generate email.
@@ -71,8 +72,6 @@ public class Login {
             System.out.println(firstName.toLowerCase()+"."
                                 +lastName.toLowerCase()+"@"
                                 +busDomain);
-                                
-            GenerateUsername(firstName, lastName);
     }
 
     //Function generate username.
